@@ -7,6 +7,7 @@ import {
 import reportWebVitals from './reportWebVitals';
 
 import About from 'pages/About/About'
+import Error from 'pages/Error/Error'
 import Home from 'pages/Home/Home'
 import Projects from 'pages/Projects/Projects'
 
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Home />,
+        errorElement: <Error />,
         children: [
             {
                 path: "about/",
