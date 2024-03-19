@@ -7,10 +7,14 @@ function Projects() {
 
     useEffect(() => {
         if (!loaded) {
-            projectsAPI.getAllProjects().then((projects) => {
-                setLoaded(true);
-                setProjects(projects);
-            });
+            projectsAPI.getAllProjects()
+                .then((projects) => {
+                    setLoaded(true);
+                    setProjects(projects);
+                })
+                .catch(() => {
+                    setLoaded(true);
+                });
         }
     });
 
@@ -23,7 +27,7 @@ function Projects() {
 
     return (
         <div className="projects">
-            {renderProjects()}
+            {loaded && renderProjects()}
         </div>
     );
 }
