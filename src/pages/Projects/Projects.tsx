@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import * as projectsAPI from 'api/projects'
 
+import Project from './components/Project/Project'
+
 function Projects() {
     const [loaded, setLoaded] = useState(false)
     const [projects, setProjects] = useState([])
@@ -20,7 +22,7 @@ function Projects() {
 
     function renderProjects() {
         let entries = projects.map((project : any) => {
-            return <div style={{ border: "1px solid black", margin: "16px" }}>{project.topic + ' - ' + project.name}</div>
+            return <Project project={project} />
         });
         return entries
     }
